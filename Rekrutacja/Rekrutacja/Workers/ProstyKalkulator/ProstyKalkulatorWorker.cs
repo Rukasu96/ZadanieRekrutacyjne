@@ -1,7 +1,7 @@
 ﻿using Soneta.Business;
 using System;
 using Soneta.Kadry;
-using Rekrutacja.Workers.PrzyciskWorker;
+using Rekrutacja.Workers.WorkerParams;
 using Rekrutacja.Workers.ProstyKalkulator;
 using Rekrutacja.Workers.Utilities;
 
@@ -12,8 +12,10 @@ namespace Rekrutacja.Workers.ProstyKalkulator
     {
         [Context]
         public Context Cx { get; set; }
+
         [Context]
         public WorkerParams<string, double> Parametry { get; set; }
+
         [Action("Kalkulator",
            Description = "Prosty kalkulator ",
            Priority = 10,

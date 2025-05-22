@@ -2,9 +2,9 @@
 {
     public enum Figura
     {
-        kwadrat,
-        prostokat,
-        trojkat,
-        kolo
+        Kwadrat,
+        Prostokat,
+        Trojkat,
+        Kolo
     }
 }

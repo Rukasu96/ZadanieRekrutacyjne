@@ -5,7 +5,7 @@ using System;
 
 namespace Rekrutacja.Workers.Utilities
 {
-    public class Utils
+    public static class Utils
     {
         public static double Oblicz(double zmiennaA, double zmiennaB, string operacja)
         {
@@ -32,13 +32,13 @@ namespace Rekrutacja.Workers.Utilities
         {
             switch (operacja)
             {
-                case Figura.kwadrat:
+                case Figura.Kwadrat:
                     return (int)Math.Pow(zmiennaA, 2);
-                case Figura.prostokat:
+                case Figura.Prostokat:
                     return (int)(zmiennaA * zmiennaB);
-                case Figura.trojkat:
+                case Figura.Trojkat:
                     return (int)(zmiennaA * zmiennaB) / 2;
-                case Figura.kolo:
+                case Figura.Kolo:
                     return (int)(Math.Pow(zmiennaA, 2) * Math.PI);
                 default:
                     return 0;

@@ -1,5 +1,5 @@
 ﻿using Rekrutacja.Workers.KalkulatorParser;
-using Rekrutacja.Workers.PrzyciskWorker;
+using Rekrutacja.Workers.WorkerParams;
 using Rekrutacja.Workers.Utilities;
 using Soneta.Business;
 using Soneta.Kadry;
@@ -12,8 +12,10 @@ namespace Rekrutacja.Workers.KalkulatorParser
     {
         [Context]
         public Context Cx { get; set; }
+
         [Context]
         public WorkerParams<string, string> Parametry { get; set; }
+
         [Action("Kalkulator Parser",
            Description = "Prosty kalkulator z wykorzystaniem parsera",
            Priority = 10,

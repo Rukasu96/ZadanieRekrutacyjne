@@ -1,5 +1,5 @@
 ﻿using Rekrutacja.Workers.KalkulatorPola;
-using Rekrutacja.Workers.PrzyciskWorker;
+using Rekrutacja.Workers.WorkerParams;
 using Rekrutacja.Workers.Utilities;
 using Soneta.Business;
 using Soneta.Kadry;
@@ -12,8 +12,10 @@ namespace Rekrutacja.Workers.KalkulatorPola
     {
         [Context]
         public Context Cx { get; set; }
+
         [Context]
         public WorkerParams<Figura, double> Parametry { get; set; }
+
         [Action("Kalkulator Pól",
            Description = "Kalkulator do liczenia pola",
            Priority = 10,
