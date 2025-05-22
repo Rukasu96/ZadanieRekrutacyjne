@@ -18,7 +18,7 @@ namespace Rekrutacja.Workers.Utilities
                 case "*":
                     return zmiennaA * zmiennaB;
                 case "/":
-                    if(zmiennaB == 0)
+                    if (zmiennaB == 0)
                     {
                         throw new Exception("Dzielenie przez 0 nie jest możliwe.");
                     }
@@ -37,9 +37,9 @@ namespace Rekrutacja.Workers.Utilities
                 case Figura.prostokat:
                     return (int)(zmiennaA * zmiennaB);
                 case Figura.trojkat:
-                    return (int)(zmiennaA * zmiennaB)/2;
+                    return (int)(zmiennaA * zmiennaB) / 2;
                 case Figura.kolo:
-                    return (int)(Math.Pow(zmiennaA,2) * Math.PI);
+                    return (int)(Math.Pow(zmiennaA, 2) * Math.PI);
                 default:
                     return 0;
             }

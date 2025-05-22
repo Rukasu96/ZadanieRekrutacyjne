@@ -4,7 +4,7 @@ using Soneta.Types;
 namespace Rekrutacja.Workers.PrzyciskWorker
 {
 
-    public class PrzyciskWorker<T,TValue> : ContextBase
+    public class WorkerParams<T, TValue> : ContextBase
     {
         [Caption("A")]
         public TValue ZmiennaA { get; set; }
@@ -15,7 +15,7 @@ namespace Rekrutacja.Workers.PrzyciskWorker
         [Caption("Data Obliczeń")]
         public Date DataObliczen { get; set; }
 
-        public PrzyciskWorker(Context context) : base(context) 
+        public WorkerParams(Context context) : base(context)
         {
             DataObliczen = Date.Today;
         }

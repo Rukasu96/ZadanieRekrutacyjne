@@ -13,7 +13,7 @@ namespace Rekrutacja.Workers.ProstyKalkulator
         [Context]
         public Context Cx { get; set; }
         [Context]
-        public PrzyciskWorker<string,double> Parametry { get; set; }
+        public WorkerParams<string, double> Parametry { get; set; }
         [Action("Kalkulator",
            Description = "Prosty kalkulator ",
            Priority = 10,
@@ -23,19 +23,15 @@ namespace Rekrutacja.Workers.ProstyKalkulator
         public void WykonajAkcje()
         {
             DebuggerSession.MarkLineAsBreakPoint();
-            Pracownik[] pracownik = null;
-            if (this.Cx.Contains(typeof(Pracownik[])))
-            {
-                pracownik = (Pracownik[])this.Cx[typeof(Pracownik[])];
-            }
+            var zaznaczeniPracownicy = Utils.ZwrocZaznaczonychPracownikow(Cx);
 
             using (Session nowaSesja = this.Cx.Login.CreateSession(false, false, "ModyfikacjaPracownika"))
             {
                 using (ITransaction trans = nowaSesja.Logout(true))
                 {
-                    foreach (var p in pracownik)
+                    foreach (var zaznaczonyPracownik in zaznaczeniPracownicy)
                     {
-                        var pracownikZSesja = nowaSesja.Get(p);
+                        var pracownikZSesja = nowaSesja.Get(zaznaczonyPracownik);
                         pracownikZSesja.Features["DataObliczen"] = Parametry.DataObliczen;
                         pracownikZSesja.Features["Wynik"] = Utils.Oblicz(Parametry.ZmiennaA, Parametry.ZmiennaB, Parametry.ZmiennaOperacyjna);
                     }

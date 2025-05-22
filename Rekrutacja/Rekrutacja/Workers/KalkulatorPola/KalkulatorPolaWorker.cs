@@ -13,7 +13,7 @@ namespace Rekrutacja.Workers.KalkulatorPola
         [Context]
         public Context Cx { get; set; }
         [Context]
-        public PrzyciskWorker<Figura,double> Parametry { get; set; }
+        public WorkerParams<Figura, double> Parametry { get; set; }
         [Action("Kalkulator Pól",
            Description = "Kalkulator do liczenia pola",
            Priority = 10,
